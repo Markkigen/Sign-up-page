@@ -1,137 +1,117 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    height: 100vh;
-    background: linear-gradient(to right, #1f1c2c, #928dab);
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .signup-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    width: 350px;
-    color: white;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .signup-box h2 {
-    margin-bottom: 24px;
-    font-size: 24px;
-    font-weight: 600;
-  }
-  
-  form .input-group {
-    position: relative;
-    margin-bottom: 18px;
-  }
-  
-  form input {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 12px;
-    border: 1px solid #fff;
-    font-size: 16px;
-    outline: none;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    transition: 0.3s;
-  }
-  
-  form input:focus {
-    border-color: #00c6ff;
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  form input::placeholder {
-    color: transparent;
-  }
-  
-  form label {
-    position: absolute;
-    left: 15px;
-    top: 12px;
-    color: #fff;
-    font-size: 16px;
-    pointer-events: none;
-    transition: 0.3s;
-  }
-  
-  form input:focus + label,
-  form input:not(:placeholder-shown) + label {
-    top: -8px;
-    left: 10px;
-    font-size: 14px;
-    color: #00c6ff;
-  }
-  
-  form .show-pass {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
-    font-size: 14px;
-    
-  }
-  
-  form button {
-    width: 100%;
-    background: #00c6ff;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    position: relative;
-    z-index: 2;
-  }
-  
-  form button:hover {
-    background: #007acc;
-    box-shadow: 0px 4px 8px rgba(0, 198, 255, 0.4);
-  }
-  
-  form button:active {
-    transform: translateY(2px);
-  }
-  
-  /* Hover effects */
-  input[type="text"], input[type="email"], input[type="password"] {
-    transition: transform 0.3s ease;
-  }
-  
-  input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
-    transform: scale(1.02);
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
 
-  .login-link {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #fff;
-  }
-  
-  .login-link a {
-    color: #00c6ff;
-    text-decoration: none;
-  }
-  
-  .login-link a:hover {
-    text-decoration: underline;
-  }
-  
+body {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.signup-box {
+  background: #1c1c1e;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 400px;
+}
+
+.signup-box h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #00ffe0;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #555;
+}
+
+.input-group span {
+  margin-right: 10px;
+  font-size: 22px;
+  color: #ccc;
+}
+
+.input-group input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 5px;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 35px;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: 5px;
+  font-size: 12px;
+  color: #00ffe0;
+}
+
+.show-pass {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.show-pass input {
+  margin-right: 8px;
+}
+
+button {
+  width: 100%;
+  background: #00ffe0;
+  color: #000;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #00d1b2;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #00ffe0;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
