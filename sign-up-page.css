@@ -83,6 +83,24 @@ body {
 .show-pass input {
   margin-right: 8px;
 }
+.password-strength {
+  font-size: 0.9em;
+  margin-top: 5px;
+  color: gray;
+}
+
+.password-strength.weak {
+  color: red;
+}
+
+.password-strength.medium {
+  color: orange;
+}
+
+.password-strength.strong {
+  color: green;
+}
+
 
 button {
   width: 100%;
