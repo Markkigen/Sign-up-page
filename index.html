@@ -11,7 +11,10 @@
 <body>
   <div class="signup-box">
     <h2>Create Your Account</h2>
-    <form>
+    
+    
+    <form onsubmit="return validatePasswords()">
+
 
 
       <div class="input-group">
@@ -57,7 +60,7 @@
 </div>
   </div>
 
-  
+
  <script>
     document.getElementById('togglePass').addEventListener('change', function () {
       const pass = document.getElementById('password');
