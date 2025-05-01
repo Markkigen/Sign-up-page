@@ -84,6 +84,28 @@
     pass.type = type;
     confirmPass.type = type;
   });
+
+  document.getElementById('password').addEventListener('input', function () {
+  const strengthText = document.getElementById('passwordStrength');
+  const value = this.value;
+  let strength = '';
+  let className = '';
+
+  if (value.length < 6) {
+    strength = 'Weak';
+    className = 'weak';
+  } else if (value.match(/[A-Za-z]/) && value.match(/[0-9]/) && value.length >= 8) {
+    strength = 'Strong';
+    className = 'strong';
+  } else {
+    strength = 'Medium';
+    className = 'medium';
+  }
+
+  strengthText.textContent = `Password Strength: ${strength}`;
+  strengthText.className = `password-strength ${className}`;
+});
+
 </script>
 
 
