@@ -13,7 +13,7 @@
     <h2>Create Your Account</h2>
     <form>
 
-      
+
       <div class="input-group">
         <span class="material-symbols-outlined">mail</span>
         <input type="email" id="email" placeholder=" " required />
@@ -57,11 +57,17 @@
 </div>
   </div>
 
-  <script>
+  
+ <script>
     document.getElementById('togglePass').addEventListener('change', function () {
       const pass = document.getElementById('password');
-      pass.type = this.checked ? 'text' : 'password';
+      const confirmPass = document.getElementById('confirmPassword');
+      const type = this.checked ? 'text' : 'password';
+      pass.type = type;
+      confirmPass.type = type;
     });
   </script>
+
+
 </body>
 </html>
