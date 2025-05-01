@@ -11,7 +11,7 @@
 <body>
   <div class="signup-box">
     <h2>Create Your Account</h2>
-    
+
     
     <form onsubmit="return validatePasswords()">
 
@@ -62,14 +62,25 @@
 
 
  <script>
-    document.getElementById('togglePass').addEventListener('change', function () {
-      const pass = document.getElementById('password');
-      const confirmPass = document.getElementById('confirmPassword');
-      const type = this.checked ? 'text' : 'password';
-      pass.type = type;
-      confirmPass.type = type;
-    });
-  </script>
+  function validatePasswords() {
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return false; 
+    }
+    return true; 
+  }
+
+  document.getElementById('togglePass').addEventListener('change', function () {
+    const pass = document.getElementById('password');
+    const confirmPass = document.getElementById('confirmPassword');
+    const type = this.checked ? 'text' : 'password';
+    pass.type = type;
+    confirmPass.type = type;
+  });
+</script>
+
 
 
 </body>
