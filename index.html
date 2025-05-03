@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up page </title>
+  <title>Sign Up Page</title>
   <link rel="stylesheet" href="sign-up-page.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -11,12 +11,8 @@
 <body>
   <div class="signup-box">
     <h2>Create Your Account</h2>
-
     
     <form onsubmit="return validatePasswords()">
-
-
-
       <div class="input-group">
         <span class="material-symbols-outlined">mail</span>
         <input type="email" id="email" placeholder=" " required />
@@ -37,78 +33,74 @@
 
       <div id="passwordStrength" class="password-strength">
         <div class="strength-bar" id="strengthBar"></div>
-        <span id="strengthText">Weak</span>
+        <span id="strengthText">Password Strength: Weak</span>
       </div>
-<br> <br>
+
+      <br><br>
       <div class="show-pass">
         <input type="checkbox" id="togglePass" />
         <label for="togglePass">Show Password</label>
       </div>
 
       <button type="submit">Sign Up</button>
-
-
     </form>
 
-
-<br><br>
-         <hr> <br>
+    <br><br>
+    <hr><br>
       
-  <div class="signup-buttons">
-  <button class="google-btn">Sign up with Google</button>
-  <button class="apple-btn">Sign up with Apple</button>
-</div>
+    <div class="signup-buttons">
+      <button class="google-btn">Sign up with Google</button>
+      <button class="apple-btn">Sign up with Apple</button>
+    </div>
 
-
-<div class="login-link">
-  <p>Already have an account? <a href="#">Log In</a></p>
-</div>
+    <div class="login-link">
+      <p>Already have an account? <a href="#">Log In</a></p>
+    </div>
   </div>
 
-
- <script>
-  function validatePasswords() {
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return false; 
+  <script>
+    function validatePasswords() {
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return false; 
+      }
+      return true; 
     }
-    return true; 
-  }
 
-  document.getElementById('togglePass').addEventListener('change', function () {
-    const pass = document.getElementById('password');
-    const confirmPass = document.getElementById('confirmPassword');
-    const type = this.checked ? 'text' : 'password';
-    pass.type = type;
-    confirmPass.type = type;
-  });
+    document.getElementById('togglePass').addEventListener('change', function () {
+      const pass = document.getElementById('password');
+      const confirmPass = document.getElementById('confirmPassword');
+      const type = this.checked ? 'text' : 'password';
+      pass.type = type;
+      confirmPass.type = type;
+    });
 
-  document.getElementById('password').addEventListener('input', function () {
-  const strengthText = document.getElementById('passwordStrength');
-  const value = this.value;
-  let strength = '';
-  let className = '';
+    document.getElementById('password').addEventListener('input', function () {
+      const strengthBar = document.getElementById('strengthBar');
+      const strengthText = document.getElementById('strengthText');
+      const value = this.value;
+      let strength = '';
+      let color = '';
 
-  if (value.length < 6) {
-    strength = 'Weak';
-    className = 'weak';
-  } else if (value.match(/[A-Za-z]/) && value.match(/[0-9]/) && value.length >= 8) {
-    strength = 'Strong';
-    className = 'strong';
-  } else {
-    strength = 'Medium';
-    className = 'medium';
-  }
+      if (value.length < 6) {
+        strength = 'Weak';
+        color = 'red';
+        strengthBar.style.width = '30%';
+      } else if (value.match(/[A-Za-z]/) && value.match(/[0-9]/) && value.length >= 8) {
+        strength = 'Strong';
+        color = 'green';
+        strengthBar.style.width = '100%';
+      } else {
+        strength = 'Medium';
+        color = 'orange';
+        strengthBar.style.width = '60%';
+      }
 
-  strengthText.textContent = `Password Strength: ${strength}`;
-  strengthText.className = `password-strength ${className}`;
-});
-
-</script>
-
-
-
+      strengthText.textContent = `Password Strength: ${strength}`;
+      strengthBar.style.backgroundColor = color;
+    });
+  </script>
 </body>
 </html>
