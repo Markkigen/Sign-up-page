@@ -100,6 +100,48 @@ body {
 .password-strength.strong {
   color: green;
 }
+.password-strength {
+  margin-top: 10px;
+  position: relative;
+}
+
+.strength-bar {
+  height: 5px;
+  width: 0%;
+  background-color: red;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -5px;
+  font-size: 12px;
+  color: #00ffe0;
+  background: #1c1c1e;
+  padding: 0 4px;
+}
+
+@media (max-width: 400px) {
+  .signup-box {
+    padding: 25px;
+  }
+
+  .signup-buttons {
+    flex-direction: column;
+  }
+
+  .signup-buttons button {
+    width: 100%;
+  }
+}
+
+button,
+.signup-buttons button {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
 
 
 button {
