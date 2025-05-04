@@ -57,7 +57,6 @@
       <p>Already have an account? <a href="#">Log In</a></p>
     </div>
   </div>
-
   <script>
     function validatePasswords() {
       const password = document.getElementById("password").value;
@@ -68,7 +67,7 @@
       }
       return true; 
     }
-
+  
     document.getElementById('togglePass').addEventListener('change', function () {
       const pass = document.getElementById('password');
       const confirmPass = document.getElementById('confirmPassword');
@@ -76,32 +75,39 @@
       pass.type = type;
       confirmPass.type = type;
     });
-
+  
     document.getElementById('password').addEventListener('input', function () {
+      const value = this.value;
       const strengthBar = document.getElementById('strengthBar');
       const strengthText = document.getElementById('strengthText');
-      const value = this.value;
-      let strength = '';
-      let color = '';
-
-      if (value.length < 6) {
-        strength = 'Weak';
-        color = 'red';
+  
+      let strength = 0;
+  
+      if (value.length >= 6) strength++;
+      if (value.match(/[A-Z]/)) strength++;
+      if (value.match(/[a-z]/)) strength++;
+      if (value.match(/[0-9]/)) strength++;
+      if (value.match(/[^A-Za-z0-9]/)) strength++;
+  
+      if (value.length === 0) {
+        strengthBar.style.width = '0%';
+        strengthText.textContent = '';
+      } else if (strength <= 2) {
         strengthBar.style.width = '30%';
-      } else if (value.match(/[A-Za-z]/) && value.match(/[0-9]/) && value.length >= 8) {
-        strength = 'Strong';
-        color = 'green';
-        strengthBar.style.width = '100%';
+        strengthBar.style.backgroundColor = 'red';
+        strengthText.textContent = 'Weak';
+      } else if (strength <= 4) {
+        strengthBar.style.width = '70%';
+        strengthBar.style.backgroundColor = 'orange';
+        strengthText.textContent = 'Medium';
       } else {
-        strength = 'Medium';
-        color = 'orange';
-        strengthBar.style.width = '60%';
+        strengthBar.style.width = '100%';
+        strengthBar.style.backgroundColor = 'green';
+        strengthText.textContent = 'Strong';
       }
-
-      strengthText.textContent = `Password Strength: ${strength}`;
-      strengthBar.style.backgroundColor = color;
     });
   </script>
+  
 
 
 
