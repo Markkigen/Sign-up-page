@@ -105,14 +105,7 @@ body {
   position: relative;
 }
 
-.strength-bar {
-  height: 5px;
-  width: 0%;
-  background-color: red;
-  transition: width 0.3s ease;
-  border-radius: 4px;
-  margin-top: 6px;
-}
+
 
 .input-group input:focus + label,
 .input-group input:not(:placeholder-shown) + label {
