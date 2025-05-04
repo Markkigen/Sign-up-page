@@ -105,7 +105,21 @@ body {
   position: relative;
 }
 
+.strength-bar {
+  
+  position: absolute;
+  bottom: -5px;
 
+  left: 0;
+  background-color: red;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+  margin-top: 6px;
+  height: 6px;
+  border-radius: 5px;
+  margin-top: 5px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
 
 .input-group input:focus + label,
 .input-group input:not(:placeholder-shown) + label {
